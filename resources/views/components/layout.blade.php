@@ -9,7 +9,10 @@
 </head>
 <body>
         <x-sidebar></x-sidebar>
-        <x-header>{{ $title }}</x-header>
+
+        <div class="h-full ml-14 mt-8 mb-10 md:ml-64">
+            {{ $slot }}
+        </div>
 
      <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
      <script>

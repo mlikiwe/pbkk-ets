@@ -1,4 +1,3 @@
-<div class="h-full ml-14 mt-8 mb-10 md:ml-64">
     <h1 class="text-xl pl-20 px-12 md:px-14">Welcome Back,</h1>
     <h1 class="text-5xl pl-20 px-12 md:px-14">Gaysang Mintics</h1>
 
@@ -42,7 +41,6 @@
       </div>
     </div>
   </div>
-</div>
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
 <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
