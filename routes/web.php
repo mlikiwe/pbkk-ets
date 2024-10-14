@@ -1,19 +1,30 @@
 <?php
 
+use App\Models\Book;
+use App\Models\Member;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('dashboard', [
+        'total_books' => Book::count(),
+        'total_members' => Member::count(),
+    ]);
 });
 
 Route::get('/daftarmember', function () {
-    return view('daftarmember');
+    return view('daftarmember', [
+        'title' => 'Daftar Member'
+    ]);
 });
 
 Route::get('/daftarbuku', function () {
-    return view('daftarbuku');
+    return view('daftarbuku', [
+        'title' => 'Daftar Buku'
+    ]);
 });
 
 Route::get('/peminjamanbuku', function () {
-    return view('peminjamanbuku');
+    return view('peminjamanbuku', [
+        'title' => 'Daftar Peminjaman Buku'
+    ]);
 });
