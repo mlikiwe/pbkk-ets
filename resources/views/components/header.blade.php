@@ -1,5 +1,6 @@
 <header>
-    <div id="header" class="h-full ml-14 mt-8 md:ml-64">
-        <h1 class="text-4xl pl-20 px-12 md:px-14 font-semibold tracking-tight text-gray-900">{{ $slot }}</h1>
+    <div class="px-16 pb-6">
+        <hr class=" bg-pink-400" style="height: 0.5px; border: none;">
     </div>
+    <h1 class="text-4xl pl-20 px-12 md:px-14">{{ $slot }}</h1>
 </header>
