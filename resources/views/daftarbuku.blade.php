@@ -8,55 +8,23 @@
         {{-- End Modal Toggle --}}
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <x-table-thead>
                     <tr>
-                        <th scope="col" class="px-6 py-3">
-                            ISBN
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Title
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Author
-                        </th>
-                        <th scope="col" class="px-6 py-3 text-center">
-                            Action
-                        </th>
+                        <x-table-header>ISBN</x-table-header>
+                        <x-table-header>Title</x-table-header>
+                        <x-table-header>Author</x-table-header>
+                        <x-table-header class="text-center">Action</x-table-header>
                     </tr>
-                </thead>
+                </x-table-thead>
                 <tbody>
-                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                        <td class="px-6 py-4">
-                            50111
-                        </td>
-                        <td class="px-6 py-4">
-                            Dead Body in the Library
-                        </td>
-                        <td class="px-6 py-4">
-                            Agatha Christie
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <a href="#" class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Detail</a>
-                            <a href="#" class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Edit</a>
-                            <a href="#" class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                        <td class="px-6 py-4">
-                            50111
-                        </td>
-                        <td class="px-6 py-4">
-                            Dead Body in the Library
-                        </td>
-                        <td class="px-6 py-4">
-                            Agatha Christie
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            <a href="#" class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Detail</a>
-                            <a href="#" class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Edit</a>
-                            <a href="#" class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Delete</a>
-                        </td>
-                    </tr>
+                    <x-table-row>
+                        <x-table-data>50111</x-table-data>
+                        <x-table-data>Dead Body in the Library</x-table-data>
+                        <x-table-data>Agatha Christie</x-table-data>
+                        <x-table-data class="text-center">
+                            <x-action-buttons></x-action-buttons>
+                        </x-table-data>
+                    </x-table-row>
                 </tbody>
             </table>
         </div>
