@@ -23,7 +23,7 @@
                             <x-table-data>{{ $loop->index + 1 }}</x-table-data>
                             <x-table-data>{{ $book->isbn }}</x-table-data>
                             <x-table-data>{{ $book->title }}</x-table-data>
-                            <x-table-data>{{ $book->author->author_name }}</x-table-data>
+                            <x-table-data>{{ $book->author->books }}</x-table-data>
                             <x-table-data class="text-center">
                                 <x-action-buttons></x-action-buttons>
                             </x-table-data>
