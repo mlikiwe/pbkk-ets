@@ -10,6 +10,7 @@
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <x-table-thead>
                     <tr>
+                        <x-table-header>No</x-table-header>
                         <x-table-header>ISBN</x-table-header>
                         <x-table-header>Title</x-table-header>
                         <x-table-header>Author</x-table-header>
@@ -17,14 +18,17 @@
                     </tr>
                 </x-table-thead>
                 <tbody>
-                    <x-table-row>
-                        <x-table-data>50111</x-table-data>
-                        <x-table-data>Dead Body in the Library</x-table-data>
-                        <x-table-data>Agatha Christie</x-table-data>
-                        <x-table-data class="text-center">
-                            <x-action-buttons></x-action-buttons>
-                        </x-table-data>
-                    </x-table-row>
+                    @foreach ($books as $book)
+                        <x-table-row>
+                            <x-table-data>{{ $loop->index + 1 }}</x-table-data>
+                            <x-table-data>{{ $book->isbn }}</x-table-data>
+                            <x-table-data>{{ $book->title }}</x-table-data>
+                            <x-table-data>{{ $book->author->author_name }}</x-table-data>
+                            <x-table-data class="text-center">
+                                <x-action-buttons></x-action-buttons>
+                            </x-table-data>
+                        </x-table-row>
+                    @endforeach
                 </tbody>
             </table>
         </div>
