@@ -20,7 +20,8 @@ Route::get('/daftarmember', function () {
 
 Route::get('/daftarbuku', function () {
     return view('daftarbuku', [
-        'title' => 'Daftar Buku'
+        'title' => 'Daftar Buku',
+        'books' => Book::all(),
     ]);
 });
 
