@@ -19,13 +19,15 @@
                 </x-table-thead>
                 <tbody>
                     @foreach ($members as $member)
-                        <x-table-data>{{ $loop->index + 1 }}</x-table-data>
-                        <x-table-data>{{ $member->name }}</x-table-data>
-                        <x-table-data>{{ $member->email }}</x-table-data>
-                        <x-table-data>{{ $member->gender }}</x-table-data>
-                        <x-table-data class="text-center">
-                            <x-action-buttons></x-action-buttons>
-                        </x-table-data>
+                        <x-table-row>
+                            <x-table-data>{{ $loop->index + 1 }}</x-table-data>
+                            <x-table-data>{{ $member->name }}</x-table-data>
+                            <x-table-data>{{ $member->email }}</x-table-data>
+                            <x-table-data>{{ $member->gender }}</x-table-data>
+                            <x-table-data class="text-center">
+                                <x-action-buttons></x-action-buttons>
+                            </x-table-data>
+                        </x-table-row>
                     @endforeach
                 </tbody>
             </table>
