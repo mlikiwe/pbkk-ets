@@ -18,15 +18,17 @@
                     </tr>
                 </x-table-thead>
                 <tbody>
-                    <x-table-row>
-                        <x-table-data>1</x-table-data>
-                        <x-table-data>50111</x-table-data>
-                        <x-table-data>Dead Body in the Library</x-table-data>
-                        <x-table-data>Agatha Christie</x-table-data>
-                        <x-table-data class="text-center">
-                            <x-action-buttons></x-action-buttons>
-                        </x-table-data>
-                    </x-table-row>
+                    @foreach ($members as $member)
+                        <x-table-row>
+                            <x-table-data>{{ $loop->index + 1 }}</x-table-data>
+                            <x-table-data>{{ $member->name }}</x-table-data>
+                            <x-table-data>{{ $member->email }}</x-table-data>
+                            <x-table-data>{{ $member->gender }}</x-table-data>
+                            <x-table-data class="text-center">
+                                <x-action-buttons></x-action-buttons>
+                            </x-table-data>
+                        </x-table-row>
+                    @endforeach
                 </tbody>
             </table>
         </div>

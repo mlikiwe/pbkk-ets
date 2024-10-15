@@ -13,7 +13,8 @@ Route::get('/', function () {
 
 Route::get('/daftarmember', function () {
     return view('daftarmember', [
-        'title' => 'Daftar Member'
+        'title' => 'Daftar Member',
+        'members' => Member::all(),
     ]);
 });
 
