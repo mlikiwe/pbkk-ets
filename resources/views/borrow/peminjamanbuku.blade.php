@@ -24,7 +24,7 @@
                             <x-table-data>{{ $loop->index + 1 }}</x-table-data>
                             <x-table-data>{{ $borrow->member->name }}</x-table-data>
                             <x-table-data>{{ $borrow->book->title }}</x-table-data>
-                            <x-table-data>{{ $borrow->due_date }}</x-table-data>
+                            <x-table-data>{{ \Carbon\Carbon::parse($borrow->due_date)->format('d M Y') }}</x-table-data>
                             <x-table-data>{{ $borrow->status }}</x-table-data>
                             <x-table-data>
                                 <div class="text-center">
