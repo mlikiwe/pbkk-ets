@@ -17,7 +17,7 @@ class BorrowController extends Controller
     function index() {
         return view('borrow.peminjamanbuku', [
             'title' => 'Book Loan List',
-            'borrows' => Borrow::all(),
+            'borrows' => Borrow::with(['member', 'book'])->get(),
             'members' => Member::all(),
             'books' => Book::all()
         ]);
