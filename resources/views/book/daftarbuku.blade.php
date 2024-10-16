@@ -32,6 +32,7 @@
                                 </div>
 
                                 @include('book.detail')
+                                @include('book.edit')
                             </x-table-data>
                         </x-table-row>
                     @endforeach

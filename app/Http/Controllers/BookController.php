@@ -44,4 +44,30 @@ class BookController extends Controller
             return redirect()->back()->with('success', 'Book Created successfully!');
         }
     }
+
+    function update(Request $request, $id) {
+        $request->validate([
+            'isbn' => 'required|string',
+            'title' => 'required|string',
+            'author_name' => 'required|string',
+            'genre_id' => 'required|exists:genres,id',
+            'year_published' => 'required|string',
+            'stock' => 'required|integer',
+        ]);
+
+        $formattedGenreId = (int)$request->genre_id;
+
+        $update = Book::find($id)->update([
+            'isbn' => $request->isbn,
+            'title' => $request->title,
+            'author_name' => $request->author_name,
+            'genre_id' => $formattedGenreId,
+            'year_published' => $request->year_published,
+            'stock' => $request->stock,
+        ]);
+
+        if ($update) {
+            return redirect()->back()->with('success', 'Book Updated successfully!');
+        }
+    }
 }
