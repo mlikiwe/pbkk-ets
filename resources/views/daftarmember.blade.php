@@ -88,3 +88,4 @@
     </x-modal>
     {{-- End Detail Modal --}}
 </x-layout>
+
