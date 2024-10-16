@@ -33,6 +33,7 @@
 
                                 @include('book.detail')
                                 @include('book.edit')
+                                @include('book.delete')
                             </x-table-data>
                         </x-table-row>
                     @endforeach

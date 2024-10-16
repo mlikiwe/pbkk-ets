@@ -70,4 +70,12 @@ class BookController extends Controller
             return redirect()->back()->with('success', 'Book Updated successfully!');
         }
     }
+
+    function destroy($id) {
+        $delete = Book::find($id)->delete();
+
+        if ($delete) {
+            return redirect()->back()->with('success', 'Book Deleted successfully!');
+        }
+    }
 }
