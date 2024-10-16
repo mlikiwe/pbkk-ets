@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\MemberController;
 use App\Models\Book;
 use App\Models\Member;
@@ -22,13 +23,14 @@ Route::get('/', function () {
 // Route::get('/daftarmember', [MemberController::class, 'index']);
 // Route::post('/daftarmember', [MemberController::class, 'store']);
 Route::resource('daftarmember', MemberController::class);
+Route::resource('daftarbuku', BookController::class);
 
-Route::get('/daftarbuku', function () {
-    return view('daftarbuku', [
-        'title' => 'Daftar Buku',
-        'books' => Book::all(),
-    ]);
-});
+// Route::get('/daftarbuku', function () {
+//     return view('daftarbuku', [
+//         'title' => 'Daftar Buku',
+//         'books' => Book::all(),
+//     ]);
+// });
 
 Route::get('/peminjamanbuku', function () {
     return view('peminjamanbuku', [
