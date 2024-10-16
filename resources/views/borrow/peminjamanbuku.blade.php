@@ -13,9 +13,7 @@
                         <x-table-header>No</x-table-header>
                         <x-table-header>Name</x-table-header>
                         <x-table-header>Book</x-table-header>
-                        <x-table-header>Borrow Date</x-table-header>
                         <x-table-header>Due Date</x-table-header>
-                        <x-table-header>Return Date</x-table-header>
                         <x-table-header>Status</x-table-header>
                         <x-table-header class="text-center">Action</x-table-header>
                     </tr>
@@ -26,9 +24,7 @@
                             <x-table-data>{{ $loop->index + 1 }}</x-table-data>
                             <x-table-data>{{ $borrow->member->name }}</x-table-data>
                             <x-table-data>{{ $borrow->book->title }}</x-table-data>
-                            <x-table-data>{{ $borrow->borrow_date }}</x-table-data>
                             <x-table-data>{{ $borrow->due_date }}</x-table-data>
-                            <x-table-data>{{ $borrow->return_date }}</x-table-data>
                             <x-table-data>{{ $borrow->status }}</x-table-data>
                             <x-table-data>
                                 <div class="text-center">

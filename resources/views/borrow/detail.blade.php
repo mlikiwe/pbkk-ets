@@ -22,7 +22,7 @@
         </div>
         <div class="flex flex-col py-3">
             <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Return Date</dt>
-            <dd class="text-lg font-semibold">{{ $borrow->return_date }}</dd>
+            <dd class="text-lg font-semibold">{{ $borrow->return_date ? $borrow->return_date : '-' }}</dd>
         </div>
         <div class="flex flex-col py-3">
             <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Status</dt>
