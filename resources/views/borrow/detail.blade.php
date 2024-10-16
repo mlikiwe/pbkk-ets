@@ -14,15 +14,15 @@
         </div>
         <div class="flex flex-col pb-3">
             <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Borrow Date</dt>
-            <dd class="text-lg font-semibold">{{ $borrow->borrow_date }}</dd>
+            <dd class="text-lg font-semibold">{{ \Carbon\Carbon::parse($borrow->borrow_date)->format('d F Y') }}</dd>
         </div>
         <div class="flex flex-col pb-3">
             <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Due Date</dt>
-            <dd class="text-lg font-semibold">{{ $borrow->due_date }}</dd>
+            <dd class="text-lg font-semibold">{{ \Carbon\Carbon::parse($borrow->due_date)->format('d F Y') }}</dd>
         </div>
         <div class="flex flex-col py-3">
             <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Return Date</dt>
-            <dd class="text-lg font-semibold">{{ $borrow->return_date ? $borrow->return_date : '-' }}</dd>
+            <dd class="text-lg font-semibold">{{ $borrow->return_date ? \Carbon\Carbon::parse($borrow->return_date)->format('d F Y') : '-' }}</dd>
         </div>
         <div class="flex flex-col py-3">
             <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Status</dt>
