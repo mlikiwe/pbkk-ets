@@ -12,16 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('borrow_books', function (Blueprint $table) {
+            $table->id('borrow_books_id_borrow');
             $table->foreignId('borrow_id')->constrained(
                 table: 'borrows',
                 indexName: 'bb_borrow_id',
-            );
+            )->onDelete('cascade');
             $table->foreignId('book_id')->constrained(
                 table: 'books',
                 indexName: 'bb_book_id',
-            );
-            $table->date('return_date');
-            $table->string('status');
+            )->onDelete('cascade');
             $table->timestamps();
         });
     }
