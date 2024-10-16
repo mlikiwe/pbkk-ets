@@ -10,7 +10,7 @@ class Borrow extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['member_id', 'due_date', 'return_date', 'status'];
+    protected $fillable = ['member_id', 'book_id', 'borrow_id', 'borrow_date', 'due_date', 'return_date', 'status'];
 
     public function book(): BelongsTo
     {
