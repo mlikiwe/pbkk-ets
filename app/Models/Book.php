@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Book extends Model
 {
@@ -22,8 +22,8 @@ class Book extends Model
         return $this->belongsTo(Genre::class);
     }
 
-    public function borrowBook(): HasMany
+    public function borrow(): BelongsToMany
     {
-        return $this->hasMany(BorrowBook::class);
+        return $this->belongsToMany(Borrow::class);
     }
 }

@@ -1,10 +1,9 @@
 <x-layout>
     <x-header>{{ $title }}</x-header>
-
     <div class="px-12 md:px-14">
         {{-- Start Add Member Modal Toggle --}}
         <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="my-8 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-            Add New Borrow
+            Add New Member
         </button>
         {{-- End Add Member Modal Toggle --}}
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -13,24 +12,18 @@
                     <tr>
                         <x-table-header>No</x-table-header>
                         <x-table-header>Name</x-table-header>
-                        <x-table-header>Books</x-table-header>
-                        <x-table-header>Borrow Date</x-table-header>
-                        <x-table-header>Due Date</x-table-header>
-                        <x-table-header>Status</x-table-header>
-                        <x-table-header>Return</x-table-header>
+                        <x-table-header>Email</x-table-header>
+                        <x-table-header>Gender</x-table-header>
                         <x-table-header class="text-center">Action</x-table-header>
                     </tr>
                 </x-table-thead>
                 <tbody>
-                    @foreach ($borrowBooks as $bb)
+                    @foreach ($members as $member)
                         <x-table-row>
                             <x-table-data>{{ $loop->index + 1 }}</x-table-data>
-                            <x-table-data>{{ $bb->borrow->member->name }}</x-table-data>
-                            <x-table-data>{{ $bb->book->title }}</x-table-data>
-                            <x-table-data>{{ $bb->borrow->borrow_date }}</x-table-data>
-                            <x-table-data>{{ $bb->due_date }}</x-table-data>
-                            <x-table-data>{{ $bb->status }}</x-table-data>
-                            <x-table-data>{{ $bb->return_date }}</x-table-data>
+                            <x-table-data>{{ $member->name }}</x-table-data>
+                            <x-table-data>{{ $member->email }}</x-table-data>
+                            <x-table-data>{{ $member->gender }}</x-table-data>
                             <x-table-data class="text-center">
                                 <x-action-buttons></x-action-buttons>
                             </x-table-data>
@@ -43,7 +36,7 @@
 
     {{-- Start Main Modal --}}
     <x-modal id="crud-modal">
-        <x-modal-header data-modal-toggle="crud-modal">Add New Borrow Data</x-modal-header>
+        <x-modal-header data-modal-toggle="crud-modal">Register New Member</x-modal-header>
         <form class="p-4 md:p-5">
             <div class="grid gap-4 mb-4 grid-cols-2">
                 <div class="col-span-2">
@@ -56,13 +49,10 @@
                 </div>
                 <div class="col-span-2">
                     <x-input-label for="category">Gender</x-input-label>
-                    <select id="category" name="category[]" multiple='multiple' requ class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                    <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                         <option selected>Select gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
-                        <option value="Ambatron">Ambatron</option>
-                        <option value="BTS">BTS</option>
-                        <option value="Kontol">Kontol</option>
                     </select>
                 </div>
                 <div class="col-span-2">
@@ -98,3 +88,4 @@
     </x-modal>
     {{-- End Detail Modal --}}
 </x-layout>
+
