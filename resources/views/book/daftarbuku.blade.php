@@ -22,7 +22,9 @@
                         <x-table-row>
                             <x-table-data>{{ $loop->index + 1 }}</x-table-data>
                             <x-table-data>{{ $book->isbn }}</x-table-data>
-                            <x-table-data>{{ $book->title }}</x-table-data>
+                            <x-table-data class="max-w-xs">
+                                <span class="text-base">{{ $book->title }}</span>
+                            </x-table-data>
                             <x-table-data>{{ $book->author_name }}</x-table-data>
                             <x-table-data>
                                 <div class="text-center">
