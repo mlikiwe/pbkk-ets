@@ -11,7 +11,7 @@ class MemberController extends Controller
     function index() {
         $members = Member::all();
         return view('member.daftarmember', [
-            'title' => 'Daftar Member',
+            'title' => 'Member List',
             'members' => $members,
         ]);
     }
@@ -41,7 +41,7 @@ class MemberController extends Controller
             return redirect()->back()->with('success', 'Member registered successfully!');
         }
     }
-    
+
     function show($id) {
         $member = Member::get()->where('id', $id)->first();
 

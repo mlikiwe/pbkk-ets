@@ -16,7 +16,7 @@ class BorrowController extends Controller
 {
     function index() {
         return view('borrow.peminjamanbuku', [
-            'title' => 'Daftar Peminjaman Buku',
+            'title' => 'Book Loan List',
             'borrows' => Borrow::all(),
             'members' => Member::all(),
             'books' => Book::all()
@@ -30,7 +30,7 @@ class BorrowController extends Controller
         ]);
 
         if ($validator->fails()) {
-            alert('gaysang gagal');
+            alert('gagal');
             // return redirect()->back()->with('error', 'Failed Register Member');
         }
 
@@ -39,7 +39,7 @@ class BorrowController extends Controller
             'book_id' => $request->book,
             'borrow_date' => Carbon::now(),
             'due_date' => Carbon::now()->addDays(7),
-            'status' => 'belum'
+            'status' => 'Borrowed'
         ]);
 
         if ($save) {
@@ -64,7 +64,7 @@ class BorrowController extends Controller
         ]);
 
         if ($validator->fails()) {
-            alert('gaysang gagal');
+            alert('gagal');
             // return redirect()->back()->with('error', 'Failed Update Member');
         }
 

@@ -53,7 +53,6 @@
     </form>
 </x-modal>
 
-<!-- Alert Modal for "Don't forget to click Edit" -->
 <x-modal id="alertReturned{{ $borrow->id }}" data-modal-backdrop="static">
     <x-modal-header data-modal-toggle="alertReturned{{ $borrow->id }}">Alert</x-modal-header>
     <div class="p-4 md:p-5 text-center">
@@ -65,21 +64,16 @@
     </div>
 </x-modal>
 
-<!-- JavaScript to Handle Mark as Returned Logic and Show Alert -->
 <script>
     document.getElementById('markReturned{{ $borrow->id }}').addEventListener('click', function() {
-        // Set the return date to the current date
-        document.getElementById('return_date{{ $borrow->id }}').value = new Date().toISOString().split('T')[0]; // Format YYYY-MM-DD
+        document.getElementById('return_date{{ $borrow->id }}').value = new Date().toISOString().split('T')[0];
 
-        // Change status to 'sudah dikembalikan'
-        document.getElementById('status{{ $borrow->id }}').value = 'sudah dikembalikan';
+        document.getElementById('status{{ $borrow->id }}').value = 'Returned';
 
-        // Show the alert modal
         const alertModal = new Modal(document.getElementById('alertReturned{{ $borrow->id }}'));
         alertModal.show();
     });
 
-    // Event listener to close the alert modal when "Okay" is clicked
     document.getElementById('closeAlert{{ $borrow->id }}').addEventListener('click', function() {
         const alertModal = new Modal(document.getElementById('alertReturned{{ $borrow->id }}'));
         alertModal.hide();

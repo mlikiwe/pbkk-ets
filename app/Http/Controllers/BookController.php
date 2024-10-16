@@ -12,7 +12,7 @@ class BookController extends Controller
         $books = Book::all();
         $genres = Genre::all();
         return view('book.daftarbuku', [
-            'title' => 'Daftar Buku',
+            'title' => 'Book List',
             'books' => $books,
             'genres' => $genres,
         ]);
