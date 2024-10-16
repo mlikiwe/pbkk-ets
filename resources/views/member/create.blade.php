@@ -1,5 +1,5 @@
-<x-modal id="crud-modal">
-    <x-modal-header data-modal-toggle="crud-modal">Register New Member</x-modal-header>
+<x-modal data-modal-backdrop="static" id="create">
+    <x-modal-header data-modal-toggle="create">Register New Member</x-modal-header>
     <form  method="post" class="p-4 md:p-5" action="{{ route('daftarmember.store') }}">
         {{ csrf_field() }}
         <div class="grid gap-4 mb-4 grid-cols-2">

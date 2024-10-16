@@ -2,7 +2,7 @@
     <x-header>{{ $title }}</x-header>
     <div class="px-12 md:px-14">
         {{-- Start Add Member Modal Toggle --}}
-        <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="my-8 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+        <button data-modal-target="create" data-modal-toggle="create" class="my-8 block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
             Add New Member
         </button>
         {{-- End Add Member Modal Toggle --}}
@@ -28,12 +28,13 @@
                                 <div class="text-center">
                                     <button data-modal-target="detail{{ $member->id }}" data-modal-toggle="detail{{ $member->id }}" class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Detail</button>
                                     <button data-modal-target="edit{{ $member->id }}" data-modal-toggle="edit{{ $member->id }}" class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Edit</button>
-                                    <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Delete</button>
+                                    <button data-modal-target="delete{{ $member->id }}" data-modal-toggle="delete{{ $member->id }}" class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Delete</button>
                                 </div>
 
                                 @include('member.create')
-                                @include('member.edit')
                                 @include('member.detail')
+                                @include('member.edit')
+                                @include('member.delete')
                             </x-table-data>
                         </x-table-row>
                     @endforeach

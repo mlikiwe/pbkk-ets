@@ -1,5 +1,5 @@
-<x-modal id="detail{{ $member->id }}">
-  <x-modal-header data-modal-toggle="detail{{ $member->id }}">detail{{ $member->id }}</x-modal-header>
+<x-modal data-modal-backdrop="static" id="detail{{ $member->id }}">
+  <x-modal-header data-modal-toggle="detail{{ $member->id }}">{{ $member->name }}'s Data</x-modal-header>
 
   {{-- Modal Body --}}
   <div class="p-4 md:p-5 space-y-4">

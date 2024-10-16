@@ -60,7 +60,7 @@ class MemberController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->with('error', 'Failed Register Member');
+            return redirect()->back()->with('error', 'Failed Update Member');
         }
 
         $update = Member::find($id)->update([
@@ -72,7 +72,15 @@ class MemberController extends Controller
         ]);
 
         if ($update) {
-            return redirect()->back()->with('success', 'Member registered successfully!');
+            return redirect()->back()->with('success', 'Member Updated successfully!');
+        }
+    }
+
+    function destroy($id) {
+        $delete = Member::find($id)->delete();
+
+        if ($delete) {
+            return redirect()->back()->with('success', 'Member Deleted successfully!');
         }
     }
 }
