@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\CobaController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\MemberController;
 use App\Models\Book;
@@ -11,9 +10,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/welcome', function () {
     return view('welcome');
 });
-
-Route::get('welcome', [CobaController::class, 'create'])->name('welcome');
-Route::post('welcome', [CobaController::class, 'store'])->name('welcome');
 
 Route::get('/', function () {
     return view('dashboard', [

@@ -20,10 +20,12 @@ class BookController extends Controller
         $validator = $request->validate([
             'isbn' => 'required|string',
             'title' => 'required|string',
-            'author_id' => 'required|exists:author,id',
+            'author' => 'required|string',
             'genre_id' => 'required|exists:genre,id',
             'year_published' => 'required|string',
             'stock' => 'required|integer'
         ]);
+
+        
     }
 }
