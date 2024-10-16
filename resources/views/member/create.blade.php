@@ -17,9 +17,6 @@
                     <option selected>Select gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
-                    <option value="GA">Both</option>
-                    <option value="PH">PlayStation 5</option>
-                    <option value="PH">Helikopter</option>
                 </select>
             </div>
             <div class="col-span-2">

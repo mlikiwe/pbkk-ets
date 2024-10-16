@@ -23,9 +23,17 @@
                             <x-table-data>{{ $loop->index + 1 }}</x-table-data>
                             <x-table-data>{{ $book->isbn }}</x-table-data>
                             <x-table-data>{{ $book->title }}</x-table-data>
-                            <x-table-data>{{ $book->author->author_name }}</x-table-data>
-                            <x-table-data class="text-center">
-                                <x-action-buttons></x-action-buttons>
+                            <x-table-data>{{ $book->author_name }}</x-table-data>
+                            <x-table-data>
+                                <div class="text-center">
+                                    <button data-modal-target="detail{{ $book->id }}" data-modal-toggle="detail{{ $book->id }}" class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Detail</button>
+                                    <button data-modal-target="edit{{ $book->id }}" data-modal-toggle="edit{{ $book->id }}" class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Edit</button>
+                                    <button data-modal-target="delete{{ $book->id }}" data-modal-toggle="delete{{ $book->id }}" class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Delete</button>
+                                </div>
+
+                                @include('book.detail')
+                                @include('book.edit')
+                                @include('book.delete')
                             </x-table-data>
                         </x-table-row>
                     @endforeach
