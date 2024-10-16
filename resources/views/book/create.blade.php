@@ -13,26 +13,24 @@
           </div>
           <div class="col-span-2">
               <x-input-label for="author">Author</x-input-label>
-              <x-modal-input type="text" name="author" id="author" placeholder="Enter Book's Author"></x-modal-input>
+              <x-modal-input type="text" name="author_name" id="author" placeholder="Enter Book's Author"></x-modal-input>
           </div>
           <div class="col-span-2">
               <x-input-label for="genre">Genre</x-input-label>
-              <select name="genre" id="genre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+              <select name="genre_id" id="genre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                   <option selected>Select genre</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="GA">Both</option>
-                  <option value="PH">PlayStation 5</option>
-                  <option value="PH">Helikopter</option>
+                  @foreach ($genres as $genre)
+                    <option value="{{ $genre->id }}">{{ $genre->genre_name }}</option>
+                  @endforeach
               </select>
           </div>
           <div class="col-span-2">
-              <x-input-label for="phone_number">Phone Number</x-input-label>
-              <x-modal-input type="tel" name="phone_number" id="phone_number" placeholder="62xxxxxxxxxxx"></x-modal-input>
+              <x-input-label for="year_published">Publication Year</x-input-label>
+              <x-modal-input type="number" name="year_published" id="year_published" placeholder="1800"></x-modal-input>
           </div>
           <div class="col-span-2">
-              <x-input-label for="address">Address</x-input-label>
-              <textarea name="address" id="address" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Insert member's address" autocomplete="off" required /></textarea>
+              <x-input-label for="stock">Book's stock</x-input-label>
+              <x-modal-input type="number" name="stock" id="stock" placeholder="0"></x-modal-input>
           </div>
       </div>
       <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">

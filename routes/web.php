@@ -20,24 +20,8 @@ Route::get('/', function () {
     ]);
 });
 
-// Route::get('/daftarmember', function () {
-//     return view('daftarmember', [
-//         'title' => 'Daftar Member',
-//         'members' => Member::all(),
-//     ]);
-// });
-
-// Route::get('/daftarmember', [MemberController::class, 'index']);
-// Route::post('/daftarmember', [MemberController::class, 'store']);
 Route::resource('daftarmember', MemberController::class);
 Route::resource('daftarbuku', BookController::class);
-
-// Route::get('/daftarbuku', function () {
-//     return view('daftarbuku', [
-//         'title' => 'Daftar Buku',
-//         'books' => Book::all(),
-//     ]);
-// });
 
 Route::get('/peminjamanbuku', function () {
     return view('peminjamanbuku', [

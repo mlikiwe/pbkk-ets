@@ -3,34 +3,39 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
     function index() {
         $books = Book::all();
+        $genres = Genre::all();
         return view('book.daftarbuku', [
             'title' => 'Daftar Buku',
             'books' => $books,
+            'genres' => $genres,
         ]);
     }
 
-    // TODO: Book store
     function store(Request $request) {
-        $validatedData = $request->validate([
-            'isbn' => 'required|integer',
+        $request->validate([
+            'isbn' => 'required|string',
             'title' => 'required|string',
-            'author' => 'required|string',
-            'genre_id' => 'required|exists:genre,id',
+            'author_name' => 'required|string',
+            'genre_id' => 'required|exists:genres,id',
             'year_published' => 'required|string',
-            'stock' => 'required|integer'
+            'stock' => 'required|integer',
         ]);
+
+        $formattedGenreId = (int)$request->genre_id;
+        // return $request;
 
         $book = Book::create([
             'isbn' => $request->isbn,
             'title' => $request->title,
             'author_name' => $request->author_name,
-            'genre_id' => $request->genre_id,
+            'genre_id' => $formattedGenreId,
             'year_published' => $request->year_published,
             'stock' => $request->stock,
         ]);
