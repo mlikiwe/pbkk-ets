@@ -19,9 +19,9 @@ Route::get('/', function () {
 //     ]);
 // });
 
-Route::get('/daftarmember', [MemberController::class, 'index']);
-Route::post('/daftarmember', [MemberController::class, 'store']);
-// Route::resource('daftarmember', MemberController::class);
+// Route::get('/daftarmember', [MemberController::class, 'index']);
+// Route::post('/daftarmember', [MemberController::class, 'store']);
+Route::resource('daftarmember', MemberController::class);
 
 Route::get('/daftarbuku', function () {
     return view('daftarbuku', [

@@ -10,7 +10,7 @@ class MemberController extends Controller
 {
     function index() {
         $members = Member::all();
-        return view('daftarmember', [
+        return view('member.daftarmember', [
             'title' => 'Daftar Member',
             'members' => $members,
         ]);
@@ -27,10 +27,6 @@ class MemberController extends Controller
 
         if ($validator->fails()) {
             return redirect()->back()->with('error', 'Failed Register Member');
-            // view('daftarmember', [
-            //     'status' => 'error',
-            //     'message' => 'Gagal menambahkan data'
-            // ]);
         }
 
         $save = Member::create([
@@ -44,5 +40,13 @@ class MemberController extends Controller
         if ($save) {
             return redirect()->back()->with('success', 'Member registered successfully!');
         }
+    }
+    
+    function show($id) {
+        $member = Member::get()->where('id', $id)->first();
+
+        return view('member.detail', [
+            'member' => $member
+        ]);
     }
 }
