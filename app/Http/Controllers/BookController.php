@@ -17,8 +17,8 @@ class BookController extends Controller
 
     // TODO: Book store
     function store(Request $request) {
-        $validator = $request->validate([
-            'isbn' => 'required|string',
+        $validatedData = $request->validate([
+            'isbn' => 'required|integer',
             'title' => 'required|string',
             'author' => 'required|string',
             'genre_id' => 'required|exists:genre,id',
@@ -26,6 +26,17 @@ class BookController extends Controller
             'stock' => 'required|integer'
         ]);
 
-        
+        $book = Book::create([
+            'isbn' => $request->isbn,
+            'title' => $request->title,
+            'author_name' => $request->author_name,
+            'genre_id' => $request->genre_id,
+            'year_published' => $request->year_published,
+            'stock' => $request->stock,
+        ]);
+
+        if ($book) {
+            return redirect()->back()->with('success', 'Book Created successfully!');
+        }
     }
 }

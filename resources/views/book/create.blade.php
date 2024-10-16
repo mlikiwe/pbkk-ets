@@ -1,20 +1,24 @@
 <x-modal data-modal-backdrop="static" id="create">
   <x-modal-header data-modal-toggle="create">Add New Book</x-modal-header>
-  <form  method="post" class="p-4 md:p-5" action="{{ route('daftarmember.store') }}">
+  <form  method="post" class="p-4 md:p-5" action="{{ route('daftarbuku.store') }}">
       {{ csrf_field() }}
       <div class="grid gap-4 mb-4 grid-cols-2">
           <div class="col-span-2">
-              <x-input-label for="name">Name</x-input-label>
-              <x-modal-input type="text" name="name" id="name" placeholder="John Doe"></x-modal-input>
+              <x-input-label for="isbn">ISBN</x-input-label>
+              <x-modal-input type="number" name="isbn" id="isbn" placeholder="0000000000000"></x-modal-input>
           </div>
           <div class="col-span-2">
-              <x-input-label for="email">Email</x-input-label>
-              <x-modal-input type="email" name="email" id="email" placeholder="johndoe@gmail.com"></x-modal-input>
+              <x-input-label for="title">Title</x-input-label>
+              <x-modal-input type="text" name="title" id="title" placeholder="Enter Book's Title"></x-modal-input>
           </div>
           <div class="col-span-2">
-              <x-input-label for="gender">Gender</x-input-label>
-              <select name="gender" id="gender" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                  <option selected>Select gender</option>
+              <x-input-label for="author">Author</x-input-label>
+              <x-modal-input type="text" name="author" id="author" placeholder="Enter Book's Author"></x-modal-input>
+          </div>
+          <div class="col-span-2">
+              <x-input-label for="genre">Genre</x-input-label>
+              <select name="genre" id="genre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                  <option selected>Select genre</option>
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                   <option value="GA">Both</option>

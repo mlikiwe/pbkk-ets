@@ -42,6 +42,6 @@ Route::resource('daftarbuku', BookController::class);
 Route::get('/peminjamanbuku', function () {
     return view('peminjamanbuku', [
         'title' => 'Daftar Peminjaman Buku',
-        'borrowBooks' => BorrowBook::all()
+        // 'borrowBooks' => BorrowBook::all()
     ]);
 });
