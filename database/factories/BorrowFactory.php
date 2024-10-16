@@ -24,7 +24,7 @@ class BorrowFactory extends Factory
             'due_date' => Carbon::now()->addDays(7),
             'member_id' => Member::inRandomOrder()->first()->id,
             'book_id' => Book::inRandomOrder()->first()->id,
-            'status' => 'belum',
+            'status' => 'Borrowed',
         ];
     }
 }
