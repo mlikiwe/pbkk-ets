@@ -15,10 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('isbn')->unique();
             $table->string('title');
-            $table->foreignId('author_id')->constrained(
-                table: 'authors',
-                indexName: 'book_author_id',
-            );
+            $table->string('author_name');
             $table->foreignId('genre_id')->constrained(
                 table: 'genres',
                 indexName: 'book_genre_id',

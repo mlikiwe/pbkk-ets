@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Borrow extends Model
 {
@@ -13,9 +12,9 @@ class Borrow extends Model
 
     protected $fillable = ['member_id', 'due_date', 'return_date', 'status'];
 
-    public function book(): BelongsToMany
+    public function book(): BelongsTo
     {
-        return $this->belongsToMany(Book::class);
+        return $this->belongsTo(Book::class);
     }
 
     public function member(): BelongsTo

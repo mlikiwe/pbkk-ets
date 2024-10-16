@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('borrows', function (Blueprint $table) {
-            $table->id()->primary;
+            $table->id();
             $table->date('borrow_date');
             $table->date('due_date');
             $table->date('return_date')->nullable();
@@ -20,6 +20,10 @@ return new class extends Migration
             $table->foreignId('member_id')->constrained(
                 table: 'members',
                 indexName: 'borrow_member_id',
+            );
+            $table->foreignId('book_id')->constrained(
+                table: 'books',
+                indexName: 'borrow_book_id',
             );
             $table->timestamps();
         });
