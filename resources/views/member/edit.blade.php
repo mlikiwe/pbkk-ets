@@ -1,7 +1,8 @@
 <x-modal id="edit{{ $member->id }}">
   <x-modal-header data-modal-toggle="edit{{ $member->id }}">Edit {{ $member->name }}'s Data</x-modal-header>
-  <form  method="post" class="p-4 md:p-5" action="{{ route('daftarmember.store') }}">
-      {{ csrf_field() }}
+  <form  method="post" class="p-4 md:p-5" action="{{ route('daftarmember.update', $member) }}">
+      @csrf
+      @method('PUT')
       <div class="grid gap-4 mb-4 grid-cols-2">
           <div class="col-span-2">
               <x-input-label for="name">Name</x-input-label>

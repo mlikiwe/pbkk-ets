@@ -49,4 +49,30 @@ class MemberController extends Controller
             'member' => $member
         ]);
     }
+
+    function update(Request $request, $id) {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'gender' => 'required|string',
+            'phone_number' => 'required|string',
+            'address' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', 'Failed Register Member');
+        }
+
+        $update = Member::find($id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'gender' => $request->gender,
+            'phone_number' => $request->phone_number,
+            'address' => $request->address,
+        ]);
+
+        if ($update) {
+            return redirect()->back()->with('success', 'Member registered successfully!');
+        }
+    }
 }
