@@ -109,8 +109,11 @@ class BorrowController extends Controller
         if ($borrow->status == 'Borrowed') {
             $borrow->return_date = Carbon::now();
             $borrow->status = 'Returned';
-            $borrow->book->stock += 1;
             $borrow->save();
+            
+            $book = Book::find($borrow->book_id);
+            $book->stock += 1;
+            $book->save();
 
             return redirect()->back()->with('success', 'Book Returned');
         }
