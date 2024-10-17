@@ -8,15 +8,29 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-    function index() {
-        $books = Book::with('genre')->paginate(20);
+    public function index(Request $request) {
+        $search = $request->input('search');
+        $books = Book::query()
+            ->join('genres', 'books.genre_id', '=', 'genres.id')
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('books.title', 'LIKE', "%{$search}%")
+                          ->orWhere('books.author_name', 'LIKE', "%{$search}%")
+                          ->orWhere('genres.genre_name', 'LIKE', "%{$search}%");
+                });
+            })
+            ->select('books.*', 'genres.genre_name as genre_name')
+            ->paginate(20);
+
         $genres = Genre::all();
         return view('book.daftarbuku', [
             'title' => 'Book List',
             'books' => $books,
             'genres' => $genres,
+            'search' => $search
         ]);
     }
+
 
     function store(Request $request) {
         $request->validate([

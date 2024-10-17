@@ -15,14 +15,29 @@ use function Laravel\Prompts\alert;
 
 class BorrowController extends Controller
 {
-    function index() {
+    public function index(Request $request) {
+        $search = $request->input('search');
+        $borrow = Borrow::query()
+            ->join('members', 'borrows.member_id', '=', 'members.id')
+            ->join('books', 'borrows.book_id', '=', 'books.id')
+            ->when($search, function ($query, $search) {
+                return $query->where(function ($query) use ($search) {
+                    $query->where('members.name', 'LIKE', "%{$search}%")
+                          ->orWhere('books.title', 'LIKE', "%{$search}%");
+                });
+            })
+            ->select('borrows.*', 'members.name as member_name', 'books.title as book_title')
+            ->paginate(20);
+
         return view('borrow.peminjamanbuku', [
             'title' => 'Book Loan List',
-            'borrows' => Borrow::with(['member', 'book'])->paginate(20),
+            'borrows' => $borrow,
             'members' => Member::all(),
-            'books' => Book::all()
+            'books' => Book::all(),
+            'search' => $search
         ]);
     }
+
 
     function store(Request $request) {
         $validator = Validator::make($request->all(), [
@@ -43,7 +58,7 @@ class BorrowController extends Controller
                 'error' => 'Stock is not available',
             ]);
         }
-        
+
         $save = Borrow::create([
             'member_id' => $request->member_id,
             'book_id' => $request->book_id,
@@ -51,7 +66,7 @@ class BorrowController extends Controller
             'due_date' => Carbon::now()->addDays(7),
             'status' => 'Borrowed'
         ]);
-        
+
         if ($save) {
             $selectedBook->stock -= 1;
             $selectedBook->save();
@@ -110,7 +125,7 @@ class BorrowController extends Controller
             $borrow->return_date = Carbon::now();
             $borrow->status = 'Returned';
             $borrow->save();
-            
+
             $book = Book::find($borrow->book_id);
             $book->stock += 1;
             $book->save();

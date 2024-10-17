@@ -8,11 +8,18 @@ use Illuminate\Support\Facades\Validator;
 
 class MemberController extends Controller
 {
-    function index() {
-        $members = Member::paginate(20);
+    public function index(Request $request) {
+        $search = $request->input('search');
+        $members = Member::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('name', 'LIKE', "%{$search}%");
+            })
+            ->paginate(20);
+
         return view('member.daftarmember', [
             'title' => 'Member List',
             'members' => $members,
+            'search' => $search,
         ]);
     }
 
