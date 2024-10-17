@@ -21,16 +21,18 @@
                 <tbody>
                     @foreach ($borrows as $borrow)
                         <x-table-row>
-                            <x-table-data>{{ $loop->index + 1 }}</x-table-data>
-                            <x-table-data>{{ $borrow->member->name }}</x-table-data>
-                            <x-table-data>{{ $borrow->book->title }}</x-table-data>
+                            <x-table-data>{{ ($borrows->currentPage() - 1) * $borrows->perPage() + $loop->index + 1 }}</x-table-data>
+                            <x-table-data class="w-1/6">{{ $borrow->member->name }}</x-table-data>
+                            <x-table-data class="w-1/4">{{ $borrow->book->title }}</x-table-data>
                             <x-table-data>{{ \Carbon\Carbon::parse($borrow->due_date)->format('d M Y') }}</x-table-data>
                             <x-table-data>{{ $borrow->status }}</x-table-data>
                             <x-table-data>
                                 <div class="text-center">
                                     <button data-modal-target="detail{{ $borrow->id }}" data-modal-toggle="detail{{ $borrow->id }}" class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Detail</button>
+                                    @if ($borrow->status == 'Borrowed')
                                     <button data-modal-target="edit{{ $borrow->id }}" data-modal-toggle="edit{{ $borrow->id }}" class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Edit</button>
                                     <button data-modal-target="delete{{ $borrow->id }}" data-modal-toggle="delete{{ $borrow->id }}" class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Delete</button>
+                                    @endif
                                 </div>
 
                                 @include('borrow.detail')
@@ -42,6 +44,11 @@
                 </tbody>
             </table>
         </div>
+        <div class="py-5">
+            {{ $borrows->links() }}
+        </div>
     </div>
+
+    
     @include('borrow.create')
 </x-layout>

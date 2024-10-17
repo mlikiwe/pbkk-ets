@@ -20,7 +20,7 @@
                 <tbody>
                     @foreach ($books as $book)
                         <x-table-row>
-                            <x-table-data>{{ $loop->index + 1 }}</x-table-data>
+                            <x-table-data>{{ ($books->currentPage() - 1) * $books->perPage() + $loop->index + 1 }}</x-table-data>
                             <x-table-data>{{ $book->isbn }}</x-table-data>
                             <x-table-data class="max-w-xs">
                                 <span class="text-base">{{ $book->title }}</span>
@@ -41,6 +41,9 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class="py-5">
+            {{ $books->links() }}
         </div>
     </div>
 

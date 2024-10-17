@@ -29,6 +29,16 @@
             <dd class="text-lg font-semibold">{{ $borrow->status }}</dd>
         </div>
 
+        @if ($borrow->status == 'Borrowed')
+            <form class="flex flex-col py-3" action="{{ route('peminjamanbuku.return', $borrow->id) }}" method="post">
+                @csrf
+                @method('PUT')
+                
+                <button type="submit" class="text-white bg-green-500 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Mark as Returned</button>
+            </form>
+        </div>
+        @endif
+
       </dl>
     </div>
   </x-modal>

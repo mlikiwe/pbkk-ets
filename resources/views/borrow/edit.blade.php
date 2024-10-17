@@ -28,7 +28,7 @@
             </select>
         </div>
 
-        <!-- Return Date Field -->
+        {{-- <!-- Return Date Field -->
         <div class="col-span-2">
             <x-input-label for="return_date">Return Date</x-input-label>
             <input type="text" name="return_date" id="return_date{{ $borrow->id }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" value="{{ old('return_date', $borrow->return_date) }}" readonly>
@@ -42,7 +42,7 @@
             <button type="button" id="markReturned{{ $borrow->id }}" class="text-white inline-flex items-center bg-green-500 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5">
                 Mark as Returned
             </button>
-        </div>
+        </div> --}}
 
         <!-- Submit Form Button (Edit) -->
         <div class="mt-4">
@@ -64,7 +64,7 @@
     </div>
 </x-modal>
 
-<script>
+{{-- <script>
     document.getElementById('markReturned{{ $borrow->id }}').addEventListener('click', function() {
         document.getElementById('return_date{{ $borrow->id }}').value = new Date().toISOString().split('T')[0];
 
@@ -78,4 +78,4 @@
         const alertModal = new Modal(document.getElementById('alertReturned{{ $borrow->id }}'));
         alertModal.hide();
     });
-</script>
+</script> --}}

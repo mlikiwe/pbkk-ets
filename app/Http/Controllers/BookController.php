@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class BookController extends Controller
 {
     function index() {
-        $books = Book::with('genre')->get();
+        $books = Book::with('genre')->paginate(20);
         $genres = Genre::all();
         return view('book.daftarbuku', [
             'title' => 'Book List',
