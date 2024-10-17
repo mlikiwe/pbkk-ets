@@ -4,7 +4,7 @@
     </div>
 
     <h1 class="text-xl pl-20 px-12 md:px-14 md:pl-20">Welcome Back,</h1>
-    <h1 class="text-4xl pl-20 px-12 md:px-14 md:pl-20">Gaysang Mintics</h1>
+    <h1 class="text-4xl pl-20 px-12 md:px-14 md:pl-20">Admin</h1>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 py-8 pl-20 px-12 md:py-8 md:px-14 md:pl-20 gap-6">
         <div class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
