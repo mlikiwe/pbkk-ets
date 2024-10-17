@@ -72,8 +72,8 @@ class BorrowController extends Controller
         $validator = Validator::make($request->all(), [
             'member_id' => 'required|exists:members,id', // Validate that the member exists
             'book_id' => 'required|exists:books,id', // Validate that the book exists
-            'return_date' => 'required|date',// Validate the return date
-            'status' => 'required|string'
+            // 'return_date' => 'required|date',// Validate the return date
+            // 'status' => 'required|string'
         ]);
 
         if ($validator->fails()) {
@@ -84,8 +84,8 @@ class BorrowController extends Controller
         $update = Borrow::findOrFail($id)->update([
             'member_id' => $request->member_id,
             'book_id' => $request->book_id,
-            'return_date' => $request->return_date,
-            'status' => $request->status
+            // 'return_date' => $request->return_date,
+            // 'status' => $request->status
         ]);
 
         if ($update) {
@@ -101,5 +101,20 @@ class BorrowController extends Controller
         if ($delete) {
             return redirect()->back()->with('success', 'Member Deleted successfully!');
         }
+    }
+
+    function returnBook($id) {
+        $borrow = Borrow::find($id);
+
+        if ($borrow->status == 'Borrowed') {
+            $borrow->return_date = Carbon::now();
+            $borrow->status = 'Returned';
+            $borrow->book->stock += 1;
+            $borrow->save();
+
+            return redirect()->back()->with('success', 'Book Returned');
+        }
+
+        return redirect()->back()->with('error', 'Failed returning book');
     }
 }
