@@ -5,7 +5,7 @@
         <div class="grid gap-4 mb-4 grid-cols-2">
             <div class="col-span-2">
                 <x-input-label for="name">Name</x-input-label>
-                <select name="member" id="member" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                <select name="member_id" id="member" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                     <option selected>Select Member</option>
                     @foreach ($members as $member)
                         <option value="{{ $member->id }}">{{ $member->name }}</option>
@@ -14,10 +14,10 @@
             </div>
             <div class="col-span-2">
                 <x-input-label for="book">Books</x-input-label>
-                <select name="book" id="book" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                    {{-- <option selected>Select Book</option> --}}
+                <select name="book_id" id="book" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                    <option selected>Select Book</option>
                     @foreach ($books as $book)
-                        <option value="{{ $book->id }}">{{ $book->title }}</option>
+                        <option value="{{ $book->id }}" {{ $book->stock <= 0 ? 'disabled' : '' }}>{{ $book->title }} ({{ $book->stock }}x)</option>
                     @endforeach
                 </select>
             </div>

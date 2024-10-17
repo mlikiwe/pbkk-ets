@@ -40,6 +40,10 @@
                 </tbody>
             </table>
         </div>
+        <div class="py-5">
+            {{ $members->links() }}
+        </div>
     </div>
+
     @include('member.create')
 </x-layout>

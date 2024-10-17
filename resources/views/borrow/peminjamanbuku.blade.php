@@ -22,8 +22,8 @@
                     @foreach ($borrows as $borrow)
                         <x-table-row>
                             <x-table-data>{{ $loop->index + 1 }}</x-table-data>
-                            <x-table-data>{{ $borrow->member->name }}</x-table-data>
-                            <x-table-data>{{ $borrow->book->title }}</x-table-data>
+                            <x-table-data class="w-1/6">{{ $borrow->member->name }}</x-table-data>
+                            <x-table-data class="w-1/4">{{ $borrow->book->title }}</x-table-data>
                             <x-table-data>{{ \Carbon\Carbon::parse($borrow->due_date)->format('d M Y') }}</x-table-data>
                             <x-table-data>{{ $borrow->status }}</x-table-data>
                             <x-table-data>
@@ -42,6 +42,11 @@
                 </tbody>
             </table>
         </div>
+        <div class="py-5">
+            {{ $borrows->links() }}
+        </div>
     </div>
+
+    
     @include('borrow.create')
 </x-layout>

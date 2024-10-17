@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 class MemberController extends Controller
 {
     function index() {
-        $members = Member::all();
+        $members = Member::paginate(20);
         return view('member.daftarmember', [
             'title' => 'Member List',
             'members' => $members,

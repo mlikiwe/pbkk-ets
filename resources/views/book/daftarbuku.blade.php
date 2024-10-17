@@ -42,6 +42,9 @@
                 </tbody>
             </table>
         </div>
+        <div class="py-5">
+            {{ $books->links() }}
+        </div>
     </div>
 
     @include('book.create')
