@@ -12,7 +12,8 @@
 Project that we will build is Library system, where people who want to borrow a book from library must be registered as member. Members who borrow the book should return it before due date, if they return it after due date, they will be charged.
 
 Database Structure:
-![Database Structure](https://github.com/user-attachments/assets/2b187661-3591-4700-8fbb-0fbf5f85f091)
+
+![Database Structure](https://github.com/user-attachments/assets/2b3c9152-579c-4780-9b61-e65955312a6a)
 
 Link Demo
 !(https://drive.google.com/file/d/1lznke5KvoCf50IFxLNYvQ7nEK8kMswgp/view?usp=drive_link)
