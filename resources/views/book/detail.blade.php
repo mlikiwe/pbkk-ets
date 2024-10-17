@@ -24,6 +24,10 @@
           <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Publication Year</dt>
           <dd class="text-lg font-semibold">{{ $book->year_published }}</dd>
       </div>
+      <div class="flex flex-col py-3">
+          <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Book's Stock</dt>
+          <dd class="text-lg font-semibold">{{ $book->stock }}</dd>
+      </div>
     </dl>
   </div>
 </x-modal>
