@@ -21,7 +21,7 @@
                 <tbody>
                     @foreach ($borrows as $borrow)
                         <x-table-row>
-                            <x-table-data>{{ $loop->index + 1 }}</x-table-data>
+                            <x-table-data>{{ ($borrows->currentPage() - 1) * $borrows->perPage() + $loop->index + 1 }}</x-table-data>
                             <x-table-data class="w-1/6">{{ $borrow->member->name }}</x-table-data>
                             <x-table-data class="w-1/4">{{ $borrow->book->title }}</x-table-data>
                             <x-table-data>{{ \Carbon\Carbon::parse($borrow->due_date)->format('d M Y') }}</x-table-data>

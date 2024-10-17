@@ -20,7 +20,7 @@
                 <tbody>
                     @foreach ($members as $member)
                         <x-table-row>
-                            <x-table-data>{{ $loop->index + 1 }}</x-table-data>
+                            <x-table-data>{{ ($members->currentPage() - 1) * $members->perPage() + $loop->index + 1 }}</x-table-data>
                             <x-table-data>{{ $member->name }}</x-table-data>
                             <x-table-data>{{ $member->email }}</x-table-data>
                             <x-table-data>{{ $member->gender }}</x-table-data>
