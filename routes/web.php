@@ -25,7 +25,6 @@ Route::resource('daftarmember', MemberController::class);
 Route::resource('daftarbuku', BookController::class);
 Route::resource('peminjamanbuku', BorrowController::class);
 Route::put('peminjamanbuku/{id}/return', [BorrowController::class, 'returnBook'])->name('peminjamanbuku.return');
-Route::put('peminjamanbuku/{id}/return', [MemberController::class, 'returnBook'])->name('peminjamanbuku.return');
 
 // Route::get('/daftarbuku', function () {
 //     return view('daftarbuku', [
